@@ -14,7 +14,6 @@ import { HighRiskClientsTable }    from './components/HighRiskClientsTable';
 import { RecentActivityTimeline }  from './components/RecentActivityTimeline';
 import { WorkflowStatusCard }      from './components/WorkflowStatusCard';
 import { RecentRecommendations }   from './components/RecentRecommendations';
-import { AIAssistantPreview }      from './components/AIAssistantPreview';
 
 // ============================================================
 // Dashboard Page — Executive View
@@ -204,11 +203,6 @@ const riskDistribution = healthDistribution?.map((point) => {
       {/* ── 9. Recent Recommendations ── */}
       <section aria-label="Recent Recommendations">
         <RecentRecommendations />
-      </section>
-
-      {/* ── 10. AI Assistant Preview ── */}
-      <section aria-label="AI Assistant Preview">
-        <AIAssistantPreview />
       </section>
 
       {/* ── 11. Footer ── */}

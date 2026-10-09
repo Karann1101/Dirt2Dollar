@@ -10,7 +10,7 @@ from src.api.routes.dashboard import router as dashboard_router
 from src.api.routes.workflows import router as workflows_router
 from src.api.routes.reports import router as reports_router
 from src.api.routes.recommendations import router as recommendations_router
-
+from src.api.routes.agent import router as agent_router
 from src.core.exceptions import (
     FrameworkException,
     ValidationException,
@@ -147,6 +147,10 @@ app.include_router(
 
 app.include_router(
     recommendations_router
+)
+
+app.include_router(
+    agent_router
 )
 
 

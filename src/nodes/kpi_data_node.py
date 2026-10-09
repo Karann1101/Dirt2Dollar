@@ -145,11 +145,6 @@ class KPIDataNode(BaseService):
             "appt_cost_mtd": self._to_float(pick("appt_cost_mtd", "apptCostMTD")),
             "appt_cost_30d": self._to_float(pick("appt_cost_30d", "apptCost30D")),
 
-            # appointments_* are not present in sheet yet; they will be None for now
-            "appointments_7d": self._to_float(pick("appointments_7d")),
-            "appointments_mtd": self._to_float(pick("appointments_mtd")),
-            "appointments_30d": self._to_float(pick("appointments_30d")),
-
             "isembeddings_created": False,
             "retry_count": 0
         }

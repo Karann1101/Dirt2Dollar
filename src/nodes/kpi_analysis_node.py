@@ -138,9 +138,6 @@ class KPIAnalysisNode(BaseService):
             "appt_cost_7d",
             "appt_cost_mtd",
             "appt_cost_30d",
-            "appointments_7d",
-            "appointments_mtd",
-            "appointments_30d",
             "retry_count",
         }
 
