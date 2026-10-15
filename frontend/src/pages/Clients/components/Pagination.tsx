@@ -27,6 +27,7 @@ export function Pagination() {
         <div className="hidden sm:flex items-center gap-2">
           <span className="text-[12.5px] text-muted-foreground">Rows per page:</span>
           <select
+            aria-label="Rows per page"
             value={pageSize}
             onChange={(e) => setPageSize(Number(e.target.value))}
             className="bg-transparent text-[12.5px] font-medium text-foreground outline-none cursor-pointer"
@@ -40,6 +41,7 @@ export function Pagination() {
 
       <div className="flex items-center gap-1">
         <button
+          aria-label="Previous page"
           onClick={() => setPage(page - 1)}
           disabled={page === 1}
           className="h-8 w-8 flex items-center justify-center rounded border border-border bg-card text-muted-foreground hover:bg-secondary disabled:opacity-50 disabled:pointer-events-none transition-colors"
@@ -50,6 +52,7 @@ export function Pagination() {
           Page {page} of {totalPages}
         </span>
         <button
+          aria-label="Next page"
           onClick={() => setPage(page + 1)}
           disabled={page === totalPages}
           className="h-8 w-8 flex items-center justify-center rounded border border-border bg-card text-muted-foreground hover:bg-secondary disabled:opacity-50 disabled:pointer-events-none transition-colors"

@@ -23,6 +23,10 @@ export function DashboardPage() {
   const [refreshKey, setRefreshKey] = React.useState(0);
   const { metrics, churnRiskChart, revenueChart, healthDistribution, isLoading, isError, errorMessage, refetch } = useDashboard();
 
+  if (isLoading) {
+    return <ContentWrapper><div role="status" aria-label="Loading dashboard" className="section-card p-8">Loading dashboard…</div></ContentWrapper>;
+  }
+
   // If the core metrics call fails, the whole page has nothing meaningful
   // to show (every section below depends on `metrics` in some way), so we
   // show a single full-page error state with a retry button instead of
@@ -110,6 +114,14 @@ export function DashboardPage() {
       },
     ]
   : undefined;
+
+  if (metrics?.totalClients === 0) {
+    return <ContentWrapper className="space-y-5">
+      <h1 className="text-heading-2">No client data yet</h1>
+      <p className="text-muted-foreground">Add client data to see portfolio insights.</p>
+      <section aria-label="Key Performance Indicators"><KPISection kpis={kpiData} /></section>
+    </ContentWrapper>;
+  }
 
   const healthBreakdown = healthDistribution
   ? {

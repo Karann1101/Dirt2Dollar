@@ -87,8 +87,9 @@ const TREND_ARROW: Record<string, string> = {
 // ============================================================
 
 function AnimatedNumber({ value }: { value: string | number }) {
-  const numericValue = typeof value === 'number' ? value : parseFloat(String(value));
-  const isNumeric = !isNaN(numericValue);
+  const numericValue = typeof value === 'number' ? value : 0;
+  // Formatted strings (such as 32% and currency) must keep their units.
+  const isNumeric = typeof value === 'number' && Number.isFinite(value);
 
   const [displayed, setDisplayed] = React.useState(isNumeric ? 0 : value);
 

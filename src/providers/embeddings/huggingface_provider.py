@@ -1,7 +1,6 @@
 from typing import List
 
 import numpy as np
-from sentence_transformers import SentenceTransformer
 
 from src.base.base_provider import BaseProvider
 from src.core.settings import settings
@@ -28,6 +27,7 @@ class HuggingFaceProvider(BaseProvider):
         model_name = getattr(settings, "embedding_model", None) or "sentence-transformers/all-mpnet-base-v2"
 
         try:
+            from sentence_transformers import SentenceTransformer
             self.model = SentenceTransformer(model_name)
         except Exception as error:
             raise ProviderException(

@@ -19,6 +19,7 @@ function FilterChip({ label, value, options, onChange }: FilterChipProps) {
   return (
     <div className="relative group">
       <select
+        aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={cn(
